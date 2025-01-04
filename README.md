@@ -1,3 +1,5 @@
+WIP: Do not use!
+
 # **SharpConfig**
 
 SharpConfig is a lightweight utility library for extending the functionality of `IConfiguration` in .NET applications. It simplifies retrieving configuration sections as strongly typed objects, with support for required sections and default naming conventions.
