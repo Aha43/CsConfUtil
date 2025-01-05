@@ -5,6 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>true</WarningsAsErrors>
+    <PackageId>SharpConfig</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Arne Halvorsen</Authors>
+    <Description>A lightweight utility for extending IConfiguration in .NET applications.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Aha43/SharpConfig</RepositoryUrl>
+    <PackageTags>configuration IConfiguration .NET</PackageTags>
+    <OutputPath>./artifacts</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
