@@ -14,11 +14,7 @@ SharpConfig is a lightweight utility library for extending the functionality of 
 
 Add the package to your project using the .NET CLI:
 
-dotnet add package Microsoft.Extensions.Configuration
-
-If you need in-memory configuration for testing:
-
-dotnet add package Microsoft.Extensions.Configuration.Memory
+`dotnet add package Microsoft.Extensions.Configuration`
 
 ## **Usage**
 
