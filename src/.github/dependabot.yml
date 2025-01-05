@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # Check for updates to NuGet dependencies in the library project
+  - package-ecosystem: "nuget"
+    directory: "/SharpConfig" # Location of the library's .csproj file
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+
+  # Check for updates to NuGet dependencies in the test project
+  - package-ecosystem: "nuget"
+    directory: "/SharpConfig.UnitTest" # Location of the test project's .csproj file
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps-tests"
+
+  # Optional: Check for GitHub Actions updates (if applicable)
+  - package-ecosystem: "github-actions"
+    directory: "/" # Root directory of your GitHub Actions workflows
+    schedule:
+      interval: "weekly"
