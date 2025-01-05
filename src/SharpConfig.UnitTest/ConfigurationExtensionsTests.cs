@@ -75,7 +75,7 @@ public class ConfigurationExtensionsTests
 
         // Act & Assert
         var exception = Assert.Throws<ArgumentException>(() => configuration.GetRequiredAs<NonExistentClass>());
-        Assert.Contains("Configuration section 'NonExistentClass' of type 'SharpConfig.Tests.ConfigurationExtensionsTests+NonExistentClass' not found.", exception.Message);
+        Assert.Equal("Configuration section 'NonExistentClass' of type 'SharpConfig.UnitTest.ConfigurationExtensionsTests+NonExistentClass' not found.", exception.Message);
     }
 
     private class NonExistentClass
