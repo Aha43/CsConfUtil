@@ -88,6 +88,10 @@ if (anotherClass != null)
 }
 ```
 
+## Target Framework Compatibility
+
+This library targets .NET 8.0 and .NET 9.0 to provide broad compatibility and support modern features. The net8.0 build ensures functionality on .NET 8.0 while the net9.0 build allows access to APIs and optimizations available in .NET 9.0. For earlier frameworks like you may clone the repository and adapt the code as needed, as the library is simple and easy to integrate.
+
 ## **Contributing**
 
 Contributions are welcome! Feel free to open issues or submit pull requests on GitHub.
