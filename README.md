@@ -10,7 +10,9 @@ SharpConfig is a lightweight utility library for extending the functionality of 
 
 ## **Installation**
 
-Currently not on nuget.org, clone this repo and reference project.
+Add the package to your project using the .NET CLI:
+
+`dotnet add package SharpConfig`
 
 ## **Usage**
 
