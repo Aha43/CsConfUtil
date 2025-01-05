@@ -25,8 +25,7 @@ function Ensure-Directory {
 # Helper function: Display help
 function Show-Help {
     Write-Host "Available tasks for SharpConfig:"
-    Write-Host "  all               Build and test the project"
-    Write-Host "  build             Build the project"
+    Write-Host "  build             Build the project (release)"
     Write-Host "  test              Run unit tests"
     Write-Host "  clean             Clean build artifacts"
     Write-Host "  pack              Create a NuGet package"
@@ -37,15 +36,23 @@ function Show-Help {
 }
 
 # Task: Build the project
-function Build-Project {
+function Build-Project-For-Task {
     Write-Host "Building the project..."
     dotnet build -c Release
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Build failed. Stopping further execution."
+        exit 1
+    }
 }
 
 # Task: Run tests
-function Run-Tests {
+function Run-Tests-For-Task {
     Write-Host "Running tests..."
     dotnet test --logger:trx --results-directory "$BuildDir/TestResults"
+    if ($LASTEXITCODE -ne 0) { 
+        Write-Error "Tests failed. Stopping further execution."
+        exit 1
+    }
 }
 
 # Task: Clean build artifacts
@@ -60,6 +67,10 @@ function Pack-Package {
     Write-Host "Packing NuGet package (version $Version)..."
     Ensure-Directory -Path $ArtifactsDir
     dotnet pack -c Release --no-build -o $ArtifactsDir
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Packaging failed. Stopping further execution."
+        exit 1
+    }
 }
 
 # Task: Publish package to local repository
@@ -71,33 +82,36 @@ function Publish-Local {
     dotnet nuget add source $LocalRepo --name local-repo || Write-Host "Local repository already exists."
 }
 
-# Task: Push package to NuGet.org
+# Task: Publish package to NuGet.org
 function Publish-Nuget-Org {
     Pack-Package
-    Write-Host "Pushing NuGet package to $NugetSource (version $Version)..."
+    Write-Host "Publishing to NuGet.org (version $Version)..."
     if (-not (Test-Path -Path $ApiKeyFile)) {
         Write-Error "API key file not found at $ApiKeyFile."
         exit 1
     }
     $ApiKey = Get-Content $ApiKeyFile -Raw
-    dotnet nuget push "$ArtifactsDir/$ProjectName.$Version.nupkg" `
-        -s $NugetSource `
-        -k $ApiKey
+    if (-not (dotnet nuget push "$ArtifactsDir/$ProjectName.$Version.nupkg" `
+              -s $NugetSource `
+              -k $ApiKey)) {
+        Write-Error "Publishing to NuGet.org failed. Stopping further execution."
+        exit 1
+    }
 }
 
 # Task: Git push (only if build and tests pass)
 function Git-Push {
-    Build-Project
-    Run-Tests
-    Write-Host "Pushing to Git repository..."
+    Write-Host "Running pre-push checks..."
+    Build-Project-For-Task
+    Run-Tests-For-Task
+    Write-Host "Pre-push checks passed. Pushing to Git repository..."
     git push
 }
 
 # Run the selected task
 switch ($Task) {
-    "all" { Build-Project; Run-Tests }
-    "build" { Build-Project }
-    "test" { Run-Tests }
+    "build" { dotnet build -c Release }
+    "test" { dotnet test }
     "clean" { Clean-Project }
     "pack" { Pack-Package }
     "publish-local" { Publish-Local }
