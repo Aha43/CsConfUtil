@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <WarningsAsErrors>true</WarningsAsErrors>
     <PackageId>CsConfUtil</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Arne Halvorsen</Authors>
     <Description>A lightweight utility for extending IConfiguration in .NET applications.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
