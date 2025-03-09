@@ -35,16 +35,32 @@ pack: build
 format:
 	dotnet format
 
+# Delete a tag (both locally and remotely) and re-tag the latest commit
+retag:
+	git tag -d $(TAG)
+	git push origin --delete $(TAG) || true
+	git tag $(TAG)
+	git push origin $(TAG)
+
+# Retag and push again, ensuring it always points to the latest commit
+retag-latest:
+	git tag -d $(TAG) || true
+	git push origin --delete $(TAG) || true
+	git tag $(TAG) HEAD
+	git push origin $(TAG)
+
 # List all available targets
 help:
 	@echo "Available targets:"
-	@echo "  make all       - Build the project (default)"
-	@echo "  make restore   - Restore NuGet packages"
-	@echo "  make build     - Build the project in Release mode"
-	@echo "  make test      - Run unit tests"
-	@echo "  make clean     - Clean the project"
-	@echo "  make pack      - Create a NuGet package"
-	@echo "  make format    - Format the code"
-	@echo "  make help      - Show available targets"
+	@echo "  make all       					- Build the project (default)"
+	@echo "  make restore   					- Restore NuGet packages"
+	@echo "  make build     					- Build the project in Release mode"
+	@echo "  make test      					- Run unit tests"
+	@echo "  make clean     					- Clean the project"
+	@echo "  make pack      					- Create a NuGet package"
+	@echo "  make format    					- Format the code"
+	@echo "  make retag TAG=vX.Y.Z-test 		- Delete and re-tag the latest commit (re-run workflows)"
+	@echo "  make retag-latest TAG=vX.Y.Z-test 	- Move tag to the latest commit and push again"
+	@echo "  make help      					- Show available targets"
 
-.PHONY: all restore build test clean pack format help
+.PHONY: all restore build test clean pack format retag retag-latest help

@@ -13,7 +13,7 @@
     <IncludePackageReferencesDuringPack>true</IncludePackageReferencesDuringPack>
     <RepositoryUrl>https://github.com/Aha43/CsConfUtil</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>../README.md</PackageReadmeFile>
     <PackageTags>configuration IConfiguration .NET</PackageTags>
     <OutputPath>./artifacts</OutputPath>
   </PropertyGroup>
