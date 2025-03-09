@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../SharpConfig/SharpConfig.csproj" />
+    <ProjectReference Include="../CsConfUtil/CsConfUtil.csproj" />
   </ItemGroup>
 
   <ItemGroup>

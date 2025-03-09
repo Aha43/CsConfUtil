@@ -1,6 +1,6 @@
-# **SharpConfig**
+# **CsConfigUtil**
 
-SharpConfig is a lightweight utility library for extending the functionality of `IConfiguration` in .NET applications. It simplifies retrieving configuration sections as strongly typed objects, with support for required sections and default naming conventions.
+CsConfigUtil is a lightweight utility library for extending the functionality of `IConfiguration` in .NET applications. It simplifies retrieving configuration sections as strongly typed objects, with support for required sections and default naming conventions.
 
 ## **Features**
 
@@ -39,7 +39,7 @@ Assume the following JSON configuration:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
-using SharpConfig;
+using CsConfigUtil;
 
 var configurationBuilder = new ConfigurationBuilder();  
 configurationBuilder.AddJsonFile("appsettings.json");  

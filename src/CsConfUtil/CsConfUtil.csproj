@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>true</WarningsAsErrors>
-    <PackageId>SharpConfig</PackageId>
+    <PackageId>CsConfUtil</PackageId>
     <Version>1.0.0</Version>
     <Authors>Arne Halvorsen</Authors>
     <Description>A lightweight utility for extending IConfiguration in .NET applications.</Description>

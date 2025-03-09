@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace SharpConfig;
+namespace CsConfUtil;
 
 public static class ConfigurationExtensions
 {

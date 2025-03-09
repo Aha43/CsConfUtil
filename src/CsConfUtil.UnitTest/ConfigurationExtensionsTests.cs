@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace SharpConfig.UnitTest;
+namespace CsConfUtil.UnitTest;
 
 public class ConfigurationExtensionsTests
 {
@@ -75,7 +75,7 @@ public class ConfigurationExtensionsTests
 
         // Act & Assert
         var exception = Assert.Throws<ArgumentException>(() => configuration.GetRequiredAs<NonExistentClass>());
-        Assert.Equal("Configuration section 'NonExistentClass' of type 'SharpConfig.UnitTest.ConfigurationExtensionsTests+NonExistentClass' not found.", exception.Message);
+        Assert.Equal("Configuration section 'NonExistentClass' of type 'CsConfUtil.UnitTest.ConfigurationExtensionsTests+NonExistentClass' not found.", exception.Message);
     }
 
     private class NonExistentClass
