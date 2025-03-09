@@ -10,7 +10,62 @@ CsConfigUtil is a lightweight utility library for extending the functionality of
 
 ## **Installation**
 
-Currently not on nuget.org, clone this repo and reference project.
+### ✨ Installation
+
+#### **Using .NET CLI**
+To install `CsConfUtil` via NuGet, run:
+
+```sh
+dotnet add package CsConfUtil
+```
+
+#### **Using Package Manager Console**
+If you're using Visual Studio, you can install it via:
+
+```powershell
+Install-Package CsConfUtil
+```
+
+#### **Adding to `.csproj` Manually**
+If you prefer, you can **manually add the package reference** in your `.csproj` file:
+
+```xml
+<ItemGroup>
+    <PackageReference Include="CsConfUtil" Version="1.0.0" />
+</ItemGroup>
+```
+
+#### **Using `Directories.Package.props` (Centrally Managed)**
+If your project uses **central package management**, add the package to `Directories.Package.props`:
+
+```xml
+<Project>
+  <ItemGroup>
+    <PackageReference Include="CsConfUtil" Version="1.0.0" />
+  </ItemGroup>
+</Project>
+```
+
+---
+
+### 🚀 Upgrade to the Latest Version
+To update `CsConfUtil` to the latest version, run:
+
+```sh
+dotnet add package CsConfUtil --prerelease
+```
+
+or
+
+```sh
+dotnet restore --force
+```
+
+---
+
+### 📌 NuGet Package Page
+You can find `CsConfUtil` on NuGet.org:  
+👉 **[NuGet Package](https://www.nuget.org/packages/CsConfUtil)**
 
 ## **Usage**
 
