@@ -35,6 +35,11 @@ pack: build
 format:
 	dotnet format
 
+# Create and push a new tag
+tag:
+	git tag $(TAG)
+	git push origin $(TAG)
+
 # Delete a tag (both locally and remotely) and re-tag the latest commit
 retag:
 	git tag -d $(TAG)
@@ -59,8 +64,9 @@ help:
 	@echo "  make clean     					- Clean the project"
 	@echo "  make pack      					- Create a NuGet package"
 	@echo "  make format    					- Format the code"
+	@echo "  make tag TAG=vX.Y.Z        		- Create and push a new tag"
 	@echo "  make retag TAG=vX.Y.Z-test 		- Delete and re-tag the latest commit (re-run workflows)"
 	@echo "  make retag-latest TAG=vX.Y.Z-test 	- Move tag to the latest commit and push again"
 	@echo "  make help      					- Show available targets"
 
-.PHONY: all restore build test clean pack format retag retag-latest help
+.PHONY: all restore build test clean pack format tag retag retag-latest help
