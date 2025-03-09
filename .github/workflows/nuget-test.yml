@@ -31,4 +31,4 @@ jobs:
         run: dotnet pack src/CsConfUtil/CsConfUtil.csproj --configuration Release --output bin/Release
 
       - name: Push package to NuGet Test Environment
-        run: dotnet nuget push bin/Release/*.nupkg --api-key ${{secrets.NUGET_TEST_API_KEY}} --skip-duplicate --source https://int.nugettest.org/api/v2/package
+        run: dotnet nuget push bin/Release/*.nupkg --skip-duplicate --api-key ${{secrets.NUGET_TEST_API_KEY}} --source https://int.nugettest.org/api/v2/package
