@@ -99,3 +99,7 @@ Contributions are welcome! Feel free to open issues or submit pull requests on G
 ## **License**
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## **Changelog**
+
+See full version history in [CHANGELOG.md](https://github.com/Aha43/CsConfUtil/blob/main/CHANGELOG.md)
