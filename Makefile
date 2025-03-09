@@ -20,7 +20,7 @@ build: restore
 
 # Run tests
 test:
-	dotnet test --configuration Release --no-build --verbosity normal
+	dotnet test --configuration Release --verbosity normal
 
 # Clean the build
 clean:
