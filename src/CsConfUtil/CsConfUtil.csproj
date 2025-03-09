@@ -10,7 +10,7 @@
     <Authors>Arne Halvorsen</Authors>
     <Description>A lightweight utility for extending IConfiguration in .NET applications.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Aha43/SharpConfig</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Aha43/CsConfUtil</RepositoryUrl>
     <PackageTags>configuration IConfiguration .NET</PackageTags>
     <OutputPath>./artifacts</OutputPath>
   </PropertyGroup>
